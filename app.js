@@ -15,12 +15,13 @@ app.get("/", (req, res) => {
     });
 });
 
-/* router.get("/:id", async (req, res) => {
-  const school = await School.query()
-    .findById(req.params.id)
-    .eager("comments");
-  res.json(idea);
-}); */
+app.get("/:id", (req, res) => {
+  School.query()
+    .where("id", req.params.id)
+    .then(school => {
+      res.json(school);
+    });
+});
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(
