@@ -16,8 +16,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
+  let searchCriteria = isNaN(req.params.id) ? "id" : "pid";
   School.query()
-    .where("id", req.params.id)
+    .where(searchCriteria, req.params.id)
     .then(school => {
       res.json(school);
     });
