@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
+app.get("/api", (req, res) => {
   if (!req.query.page) {
     School.query()
       .orderBy("pid", "asc")
@@ -28,7 +32,7 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/:id", (req, res) => {
+app.get("/api/:id", (req, res) => {
   let searchCriteria = isNaN(req.params.id) ? "id" : "pid";
   School.query()
     .where(searchCriteria, req.params.id)

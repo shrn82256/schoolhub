@@ -1,0 +1,16 @@
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.facility-fab {
+  margin: 6px 8px;
+}
+
+.facility-fab i {
+  font-size: 1.2em;
+}
+
+.card-info-button {
+  color: #000;
+}
