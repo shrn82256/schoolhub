@@ -5,7 +5,8 @@ import SchoolList from "./school/SchoolList";
 import SchoolSearch from "./school/SchoolSearch";
 import "./Dashboard.css";
 
-const api_url = "http://schoolhub-heroku.herokuapp.com/api/";
+// const api_url = "http://schoolhub-heroku.herokuapp.com/api/";
+const api_url = "/api";
 // const api_url = "http://localhost:5000/";
 
 class Dashboard extends Component {
@@ -28,6 +29,7 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
+    // console.log(api_url);
     axios
       .get(api_url)
       .then(res => {
