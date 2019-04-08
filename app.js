@@ -8,11 +8,24 @@ const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
-  School.query()
-    .orderBy("pid", "asc")
-    .then(schools => {
-      res.json(schools);
-    });
+  if (!req.query.page) {
+    School.query()
+      .orderBy("pid", "asc")
+      .then(schools => {
+        res.json(schools);
+      });
+  } else {
+    const page = req.query.page;
+    const multiplier = 20;
+
+    School.query()
+      .orderBy("pid", "asc")
+      .offset(page * multiplier)
+      .limit(multiplier)
+      .then(schools => {
+        res.json(schools);
+      });
+  }
 });
 
 app.get("/:id", (req, res) => {
