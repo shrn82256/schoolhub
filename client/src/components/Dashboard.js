@@ -5,7 +5,7 @@ import SchoolList from "./school/SchoolList";
 import SchoolSearch from "./school/SchoolSearch";
 import "./Dashboard.css";
 
-const api_url = "http://schoolhub-heroku.herokuapp.com/";
+const api_url = "http://schoolhub-heroku.herokuapp.com/api/";
 // const api_url = "http://localhost:5000/";
 
 class Dashboard extends Component {
